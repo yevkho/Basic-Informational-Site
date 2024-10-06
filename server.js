@@ -1,10 +1,12 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const url = require("url");
 
 // 1) create server
 const server = http.createServer((req, res) => {
   console.log(req.url);
+  console.log(url.parse(req.url, true).pathname); //same thing
 
   // Get the file extension of the request (e.g., .html, .css)
   const ext = path.extname(req.url);
